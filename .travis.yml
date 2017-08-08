@@ -1,0 +1,28 @@
+language: r
+sudo: false
+
+cache:
+  directories:
+    - $TRAVIS_BUILD_DIR/packrat/src
+    - $TRAVIS_BUILD_DIR/packrat/lib
+  packages: true
+
+git:
+  depth: 3
+
+os:
+  - linux
+
+r_packages:
+  - knitr
+
+#r_github_packages:
+#  - jimhester/covr
+
+install:
+  - R -e "0" --args --bootstrap-packrat
+
+after_success:
+  - Rscript -e 'devtools::install_github("jimhester/covr")'
+  - Rscript -e 'covr::codecov()'
+
