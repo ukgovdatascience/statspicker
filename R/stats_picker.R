@@ -57,36 +57,3 @@ stats_picker <- function(x) {
     ),
     class = "stats_picker")
 }
-
-
-
-pick <- function(x, var_levels) UseMethod('pick')
-
-#' @describeIn year_sector_table Create wide table from year_sector_data() class
-#' @export
-
-pick.stats_picker <- function(x, var_levels) {
-
-  # Enquo was introduced in dplyr 0.7 to deal with lazy evaluation.
-  # Which column contains the stated level?
-
-  cols = data.frame()
-
-  for (i in var_levels) {
-
-  i = enquo(i)
-
-  column = x$levels_lookup %>%
-    filter(
-      levels == (!! i)
-      )
-
-  cols = bind_rows(cols, column)
-
-  }
-
-  return(cols)
-
-}
-
-
