@@ -1,15 +1,9 @@
 #' @title Statistics picker
-#'
 #' @description
-#'
 #' @details
-#'
 #' @param
-#'
 #' @return
-#'
 #' @examples
-#'
 #' @export
 
 

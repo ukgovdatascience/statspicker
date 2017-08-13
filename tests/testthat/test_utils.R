@@ -1,10 +1,10 @@
-context('Test the utits functions')
+context('Test the utils functions')
 
 # Setup levels to be used in test_df categorical columns
 
-levels1 = letters[1:10]
+levels1 = letters[1:4]
 levels2 = letters[11:15]
-levels3 = letters[26:22]
+levels3 = letters[20:23]
 
 # Use R's recycling of categories to populate test_df categorical columns
 
@@ -34,7 +34,7 @@ test_that(
     test_levels <- levels_df(test_df, 'cat1')
 
     expect_is(test_levels, 'data.frame')
-    expect_equal(test_levels$levels, letters[1:10])
+    expect_equal(test_levels$levels, levels1)
 
     }
   )

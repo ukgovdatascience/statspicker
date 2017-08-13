@@ -14,11 +14,21 @@ pick <- function(cls, var_levels) UseMethod('pick')
 
 pick.stats_picker <- function(cls, var_levels) {
 
-  # Which column contains the stated level?
-
   df = cls$df
 
-  for (i in var_levels) {
+  # Identify columns for which we have been passes levels
+
+  columns_to_subset_by <- cls$levels_lookup[cls$levels_lookup$levels %in% var_levels, 'column']
+  columns_to_subset_by <- unique(columns_to_subset_by)
+
+  # Iterate through these columns, and use the levels that are present in those
+  # columns to subset
+
+  for (i in columns_to_subset_by) {
+
+    mask <- cls$levels_lookup$column == i & cls$levels_lookup$levels %in% var_levels
+
+    levels_to_subset_by <- cls$levels_lookup[mask, 'levels']
 
   # Enquo was introduced in dplyr 0.7 to deal with lazy evaluation.l
 
@@ -26,12 +36,10 @@ pick.stats_picker <- function(cls, var_levels) {
 
   column = dplyr::filter(cls$levels_lookup, levels == (!! j))
 
-  k = column$column
-
   # .data[[var]] allows quoting of vars (filter_ was deprecated
   # in dplyr 0.7.
 
-  df <- dplyr::filter(df, .data[[k]] == i)
+  df <- dplyr::filter(df, .data[[i]] %in% levels_to_subset_by)
 
   }
 
