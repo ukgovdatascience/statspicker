@@ -1,15 +1,9 @@
-#' @title Statistics picker
-#'
+#' @title Pick a subset from the stats_picker class
 #' @description
-#'
 #' @details
-#'
 #' @param
-#'
 #' @return
-#'
 #' @examples
-#'
 #' @export
 
 
@@ -18,7 +12,7 @@ pick <- function(x, var_levels) UseMethod('pick')
 #' @describeIn stats_picker Output a given crosstab
 #' @export
 
-pick.stats_picker <- function(x, var_levels) {
+pick.stats_picker <- function(cls, var_levels) {
 
   # Which column contains the stated level?
 
@@ -28,14 +22,16 @@ pick.stats_picker <- function(x, var_levels) {
 
   # Enquo was introduced in dplyr 0.7 to deal with lazy evaluation.
 
-  j = enquo(i)
+  j = dplyr::enquo(i)
 
-  column = x$levels_lookup %>% filter(levels == (!! j))
+  column = dplyr::filter(cls$levels_lookup, levels == (!! j))
 
-  #print(paste(column$column, " == ", i))
-  #cols = x$df %>% filter_(column$column == i)
+  k = column$column
 
-  cols = bind_rows(cols, column)
+  # .data[[var]] allows quoting of vars (filter_ was deprecated
+  # in dplyr 0.7.
+
+  cols = dplyr::filter(cls$df, .data[[k]] == i)
 
   }
 

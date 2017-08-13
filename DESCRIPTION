@@ -1,7 +1,7 @@
 Package: mojrap
 Type: Package
 Title: Function to support a Reproducible Analytical Pipeline implementation in MoJ
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: person("Matthew", "Upson", email = "matthew.upson@digital.cabinet-office.gov.uk", role = c("aut", "cre"))
 Maintainer: Matthew Upson <matthew.upson@digital.cabinet-office.gov.uk>
 Description: 
