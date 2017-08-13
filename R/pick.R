@@ -7,7 +7,7 @@
 #' @export
 
 
-pick <- function(x, var_levels) UseMethod('pick')
+pick <- function(cls, var_levels) UseMethod('pick')
 
 #' @describeIn stats_picker Output a given crosstab
 #' @export
@@ -16,11 +16,11 @@ pick.stats_picker <- function(cls, var_levels) {
 
   # Which column contains the stated level?
 
-  cols = data.frame()
+  df = cls$df
 
   for (i in var_levels) {
 
-  # Enquo was introduced in dplyr 0.7 to deal with lazy evaluation.
+  # Enquo was introduced in dplyr 0.7 to deal with lazy evaluation.l
 
   j = dplyr::enquo(i)
 
@@ -31,11 +31,11 @@ pick.stats_picker <- function(cls, var_levels) {
   # .data[[var]] allows quoting of vars (filter_ was deprecated
   # in dplyr 0.7.
 
-  cols = dplyr::filter(cls$df, .data[[k]] == i)
+  df <- dplyr::filter(df, .data[[k]] == i)
 
   }
 
-  return(cols)
+  return(df)
 
 }
 
