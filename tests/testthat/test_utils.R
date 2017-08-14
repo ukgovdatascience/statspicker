@@ -9,22 +9,10 @@ levels3 = letters[20:23]
 # Use R's recycling of categories to populate test_df categorical columns
 
 test_df <- data.frame(
-  cat1 = levels1,
-  cat2 = levels2,
-  cat3 = levels3,
+  cat1 = factor(levels1),
+  cat2 = factor(levels2),
+  cat3 = factor(levels3),
   cont = rnorm(100)
-  )
-
-test_that(
-  'list_cats works as expected',
-  {
-
-    cats  <- list_cats(test_df)
-
-    expect_is(cats, 'character')
-    expect_equal(cats, c('cat1', 'cat2', 'cat3'))
-
-    }
   )
 
 test_that(
@@ -43,7 +31,10 @@ test_that(
   'level_df works in a purrr statement',
   {
 
-    cats <- list_cats(test_df)
+    # Get list of factor columns
+
+    cats <- names(test_df)[sapply(test_df, is.factor)]
+
     levels_lookup = purrr::map_df(cats, function(x) levels_df(test_df, x))
 
     expect_is(levels_lookup, 'data.frame')

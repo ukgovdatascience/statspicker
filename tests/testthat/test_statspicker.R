@@ -1,4 +1,4 @@
-context('Test the stats_picker class and pick method')
+context('Test the statspicker class and pick method')
 
 # Setup levels to be used in test_df categorical columns
 
@@ -15,11 +15,11 @@ test_df <- data.frame(
   cont = rnorm(100)
   )
 
-target <- stats_picker(test_df)
+target <- statspicker(test_df)
 
 
 test_that(
-  'stats_picker class instantiation works as expected',
+  'statspicker class instantiation works as expected',
   {
 
     expect_is(target$levels_lookup, 'data.frame')

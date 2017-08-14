@@ -6,3 +6,9 @@
 \usage{
 pick(cls, var_levels)
 }
+\arguments{
+\item{cls}{Object of the statspicker class.}
+
+\item{var_levels}{List or vector containing quoted factor levels on which to
+subset the data.}
+}

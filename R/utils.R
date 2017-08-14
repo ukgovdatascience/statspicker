@@ -7,16 +7,6 @@
 #' @export
 
 
-list_cats = function(df) {
-
-  col_types = unlist(sapply(df, class))
-  factor_cols = col_types[col_types == "factor"]
-  factor_cols = names(factor_cols)
-  #gsub("\\d", "", names(factor_cols))
-  return(factor_cols)
-
-}
-
 levels_df = function(df, factor_col) {
 
   col_levels = unname(unique(df[factor_col]))

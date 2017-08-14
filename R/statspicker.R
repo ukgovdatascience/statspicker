@@ -1,18 +1,18 @@
-#' @title Statistics picker
+#' @title Easily cross-tabulate categorical data
 #' @description
 #' @details
-#' @param
+#' @param df Target dataframe containing categorical data.
 #' @return
 #' @examples
 #' @export
 
-
-stats_picker <- function(df) {
+statspicker <- function(df) {
 
   message('Initiating statistics picker class.
 \n\nExpects a data_frame containing population data')
 
-  factor_cols <- list_cats(df)
+  factor_cols <- names(df)[sapply(df, is.factor)]
+
   # Generate a dataframe containing all the factor levels in each of the rows
   # This should be tested and go into utils.R
 
@@ -26,5 +26,5 @@ stats_picker <- function(df) {
       factor_cols = factor_cols,
       levels_lookup = levels_lookup
     ),
-    class = "stats_picker")
+    class = "statspicker")
 }

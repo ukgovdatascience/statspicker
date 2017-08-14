@@ -1,7 +1,9 @@
 #' @title Pick a subset from the stats_picker class
 #' @description
 #' @details
-#' @param
+#' @param cls Object of the statspicker class.
+#' @param var_levels List or vector containing quoted factor levels on which to
+#'   subset the data.
 #' @return
 #' @examples
 #' @export
@@ -9,10 +11,10 @@
 
 pick <- function(cls, var_levels) UseMethod('pick')
 
-#' @describeIn stats_picker Output a given crosstab
+#' @describeIn statspicker Output a given crosstab
 #' @export
 
-pick.stats_picker <- function(cls, var_levels) {
+pick.statspicker <- function(cls, var_levels) {
 
   df = cls$df
 
