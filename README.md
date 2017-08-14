@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ukgovdatascience/statspicker.svg?branch=master)](https://travis-ci.org/ukgovdatascience/statspicker)
+
 # statspicker
 
 Quick cross-tabulation of categorical data for inclusion in Rmarkdown chunks.
