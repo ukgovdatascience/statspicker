@@ -39,6 +39,11 @@ Version: 0.2
 Hash: 8ab2dbf7ea120cf2d31183e0bf388485
 Requires: Rcpp, bindr, plogr
 
+Package: bitops
+Source: CRAN
+Version: 1.0-6
+Hash: 67d0775189fd0041d95abca618c5c07e
+
 Package: brew
 Source: CRAN
 Version: 1.0-6
@@ -89,6 +94,12 @@ Hash: a4e8be0458f97a40806bcced654de815
 Requires: BH, R6, Rcpp, assertthat, bindrcpp, glue, magrittr,
     pkgconfig, plogr, rlang, tibble
 
+Package: evaluate
+Source: CRAN
+Version: 0.10.1
+Hash: 54d95f4ec6d0300100413ed0127d89ae
+Requires: stringr
+
 Package: git2r
 Source: CRAN
 Version: 0.19.0
@@ -98,6 +109,11 @@ Package: glue
 Source: CRAN
 Version: 1.1.1
 Hash: dfd5a27768175ae51d08dc6beba1ef11
+
+Package: highr
+Source: CRAN
+Version: 0.6
+Hash: aa3d5b7912b5fed4b546ed5cd2a1760b
 
 Package: httr
 Source: CRAN
@@ -110,6 +126,12 @@ Source: CRAN
 Version: 1.5
 Hash: 9c51936d8dd00b2f1d4fe9d10499694c
 
+Package: knitr
+Source: CRAN
+Version: 1.17
+Hash: f6b2bf543ee3e25f5b92bb46f9958c5f
+Requires: digest, evaluate, highr, markdown, stringr, yaml
+
 Package: lmtest
 Source: CRAN
 Version: 0.9-35
@@ -120,6 +142,12 @@ Package: magrittr
 Source: CRAN
 Version: 1.5
 Hash: bdc4d48c3135e8f3b399536ddf160df4
+
+Package: markdown
+Source: CRAN
+Version: 0.8
+Hash: 045d7c594d503b41f1c28946d076c8aa
+Requires: mime
 
 Package: memoise
 Source: CRAN
@@ -230,6 +258,11 @@ Source: CRAN
 Version: 1.1.1
 Hash: b326a762ddb04eef605cc88987fa71fb
 Requires: BH, Rcpp
+
+Package: yaml
+Source: CRAN
+Version: 2.1.14
+Hash: c81230c3a7d9ba20607ad6b4331173d1
 
 Package: zoo
 Source: CRAN
