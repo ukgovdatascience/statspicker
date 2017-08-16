@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/ukgovdatascience/statspicker.svg?branch=master)](https://travis-ci.org/ukgovdatascience/statspicker)
+[![GitHub tag](https://img.shields.io/github/tag/ukgovdatascience/statspicker.svg)](https://github.com/ukgovdatascience/statspicker/releases)
 
 # statspicker
 
