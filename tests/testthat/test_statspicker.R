@@ -1,5 +1,30 @@
 context('Test the statspicker class and pick method')
 
+test_that(
+  'statspicker class handles categorical variable level clashes.',
+  {
+
+  # Setup levels to be used in test_df categorical columns
+
+  levels1 = letters[2:6]
+  levels2 = letters[6:2]
+  levels3 = letters[26:22]
+
+  # Use R's recycling of categories to populate test_df categorical columns
+
+  test_df <- data.frame(
+    cat1 = factor(levels1),
+    cat2 = factor(levels2),
+    cat3 = factor(levels3),
+    cont = rnorm(100)
+    )
+
+  expect_error(statspicker(test_df))
+
+    }
+  )
+
+
 # Setup levels to be used in test_df categorical columns
 
 levels1 = letters[2:6]

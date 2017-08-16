@@ -18,6 +18,19 @@ statspicker <- function(df) {
 
   levels_lookup <- purrr::map_df(factor_cols, function(x) levels_df(df, x))
 
+  # Check that there are no duplicate levels within two factors:
+
+  if (any(duplicated(levels_lookup$levels))) {
+
+    duplicated_columns <- unique(levels_lookup[duplicated(levels_lookup$levels),'column'])
+
+    stop(
+      'Duplicated factor levels in the following columns: ',
+      paste0(duplicated_columns, sep = ', ')
+         )
+
+  }
+
   # Define the class here ----
 
   structure(
