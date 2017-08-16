@@ -5,6 +5,12 @@
 
 Quick cross-tabulation of categorical data for inclusion in Rmarkdown chunks.
 
+## Installation
+
+The package can then be installed using `devtools::install_github('ukgovdatascience/statspicker')`. 
+Some users may not be able to use the `devtools::install_github()` commands as a result of network security settings. 
+If this is the case, `statspicker` can be installed by downloading the [zip of the repository](https://github.com/ukgovdatascience/statspicker/archive/master.zip) and installing the package locally using `devtools::install_local(<path to zip file>)`.
+
 ## Usage
 
 ``` 
